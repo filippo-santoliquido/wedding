@@ -1,0 +1,67 @@
+
+/* ---- One-page scroll additions ---- */
+html { scroll-behavior: smooth; }
+
+.band {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  margin: 2.6rem 0;
+}
+@media (min-width: 700px) { .band { height: 360px; } }
+
+/* give anchored jumps a little breathing room from the top */
+.article [id] { scroll-margin-top: 1.5rem; }
+
+/* centre the page title and section headings for the one-pager */
+.layout-page .article > h1,
+.layout-page .article > h2 { text-align: center; }
+.layout-page .article > h2 { margin-top: 1rem; }
+
+/* ---- Countdown (nella hero) ---- */
+.countdown {
+  margin-top: 1.1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  color: #eeeee4;
+  flex-wrap: wrap;
+}
+.countdown .cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.countdown .cd-unit b {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.countdown .cd-done { font-size: 1.4rem; }
+@media (min-width: 700px) {
+  .countdown { gap: 2rem; }
+  .countdown .cd-unit b { font-size: 2.8rem; }
+}
+
+/* ---- Mappe Google incorporate ---- */
+.maps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  margin: 1.4rem 0 0;
+}
+@media (min-width: 800px) { .maps-grid { grid-template-columns: 1fr 1fr; } }
+.map-embed {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: .4rem;
+}
+.map-card h3 { text-align: center; margin: 0 0 .5rem; }

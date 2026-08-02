@@ -1,0 +1,50 @@
+# ------------------------------------------------------------------
+#  DA MODIFICARE  --------------------------------------------------
+# ------------------------------------------------------------------
+title: "Michela & Filippo — Matrimonio"   # mostrato nella scheda del browser e nel footer
+description: "Tutte le informazioni sul nostro matrimonio: location, programma, foto e RSVP."
+
+# Data e ora del matrimonio per il countdown (formato AAAA-MM-GGTHH:MM:SS)
+wedding_date: "2027-06-12T16:00:00"
+url: "https://filippo-santoliquido.github.io"
+baseurl: "/wedding"                        # il sito sarà su username.github.io/wedding/
+
+# Menu di navigazione (ordine = sinistra→destra). Aggiungi/togli voci per adattarlo alle tue pagine.
+navigation_header:
+- title: Home
+  url: /
+- title: Location
+  url: /#location
+- title: Programma
+  url: /#programma
+- title: FAQ
+  url: /#faq
+- title: Regali
+  url: /#regali
+- title: Foto
+  url: /#foto
+- title: RSVP
+  url: /#rsvp
+
+# ------------------------------------------------------------------
+#  Font (Josefin Sans). Cambia la famiglia qui e in assets/styles.scss per restilizzare.
+fonts:
+  preconnect_urls:
+    - https://fonts.gstatic.com
+  font_urls:
+    - https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,300;1,400
+
+# ------------------------------------------------------------------
+#  Impostazioni di build (lascia così a meno che tu non sappia di doverle cambiare)
+permalink: pretty
+service_worker: false
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jemoji
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
