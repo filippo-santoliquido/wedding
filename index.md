@@ -6,16 +6,16 @@ image: "/assets/images/crater-lake.jpg"
 feature_image: "/assets/images/crater-lake.jpg"
 feature_text: |
   <h1 style="color: #eeeee4">Michela &amp; Filippo</h1>
-  <p style="color: #eeeee4">« Sabato GG Mese 2027 »</p>
+  <p style="color: #eeeee4">« Lunedì 29 Marzo 2027 »</p>
   <div id="countdown" class="countdown" aria-live="polite"></div>
 ---
 
 <p style='text-align: center'>
-Ci sposiamo <b>« sabato GG mese 2027 »</b> a <b>« Città, Paese »</b> e saremmo felicissimi di avervi con noi.
+Ci sposiamo <b>« Lunedì 29 Marzo 2027 »</b>, altrimenti nota come Pasquetta 2027 😆 a <b>« Verona »</b> e saremmo felicissimi di avervi con noi.
 </p>
 
 <p style='text-align: center'>
-Su questa pagina trovate tutto quello che vi serve: scorrete verso il basso per le location, il programma del weekend, i regali, le foto e per confermare la vostra presenza.
+Su questa pagina trovate tutto quello che vi serve: scorrete verso il basso per le location, il programma, i regali, le foto e per confermare la vostra presenza.
 </p>
 
 <p style='text-align: center'>
@@ -30,27 +30,27 @@ Il matrimonio si svolge in due luoghi: la cerimonia in chiesa e, a seguire, il r
 <div class="maps-grid">
   <div class="map-card">
     <h3>⛪ La Chiesa</h3>
-    <p style="text-align:center">« Nome della chiesa »<br>« indirizzo, città »<br>Ore « HH:MM »</p>
+    <p style="text-align:center">« Chiesa di Sant'Antonio Abate »<br>« Piazza Chievo, 24, 37139 Verona »<br>Ore « 11:15 »</p>
     <!-- Per cambiare mappa: sostituisci il testo dopo q= con l'indirizzo reale (usa + al posto degli spazi) -->
-    <iframe class="map-embed" loading="lazy" src="https://maps.google.com/maps?q=Piazza+del+Duomo+Verona&z=16&output=embed"></iframe>
+    <iframe class="map-embed" loading="lazy" src="https://maps.google.com/maps?q=Piazza+Chievo+Verona&z=24&output=embed"></iframe>
   </div>
   <div class="map-card">
     <h3>🥂 Il Ricevimento</h3>
-    <p style="text-align:center">« Nome della location »<br>« indirizzo, città »<br>Ore « HH:MM »</p>
-    <iframe class="map-embed" loading="lazy" src="https://maps.google.com/maps?q=Villa+Verona+Italia&z=15&output=embed"></iframe>
+    <p style="text-align:center">« Villa Ottolini »<br>« Via Valle Molini, 5, 37066 Custoza »<br>Ore « 13:00 »</p>
+    <iframe class="map-embed" loading="lazy" src="https://maps.google.com/maps?q=Via+Valle+Molini+Custoza&z=5&output=embed"></iframe>
   </div>
 </div>
 
 {% include band.html image="/assets/images/sweden-aperol.jpg" %}
 ## Programma {#programma}
 
-Ecco il programma di massima della giornata. Partecipate a quanto volete, come preferite.
+Ecco il programma di massima della giornata.
 
-- « HH:MM » — Cerimonia in chiesa
-- « HH:MM » — Aperitivo
-- « HH:MM » — Ricevimento, cena e balli
+- « 11:15 » — Cerimonia in chiesa
+- « 13:00 » — Aperitivo
+- « 18:00 » — Ricevimento, cena e balli
 
-*Dress code: « es. formale / garden party »*
+*Dress code: formalisimo, vietato essere brutti*
 
 {% include band.html image="/assets/images/skiing.jpg" %}
 ## Domande Frequenti {#faq}
@@ -67,7 +67,7 @@ Ecco il programma di massima della giornata. Partecipate a quanto volete, come p
 {% include band.html image="/assets/images/safari.jpg" %}
 ## Regali {#regali}
 
-<p style='text-align: center'>« Il vostro testo: ad esempio, la vostra presenza è per noi il regalo più grande, ma se desiderate contribuire… »</p>
+<p style='text-align: center'>«La vostra presenza è per noi il regalo più grande, ma se desiderate contribuire… »</p>
 
 <p style='text-align: center'>« Link alla lista nozze / fondo per il viaggio di nozze / IBAN, come preferite. »</p>
 
