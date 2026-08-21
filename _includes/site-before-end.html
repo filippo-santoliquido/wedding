@@ -1,18 +1,16 @@
-<!-- Script del tema -->
-<script src="{{ '/assets/button.js' | relative_url }}"></script>
-
 <!-- Countdown al matrimonio -->
 <script>
   (function () {
     var el = document.getElementById('countdown');
     if (!el) return;
-    var target = new Date("{{ site.wedding_date }}").getTime();
+    // Safari/iOS richiede il formato ISO completo: lo normalizziamo
+    var target = new Date("{{ site.wedding_date }}".replace(' ', 'T')).getTime();
     if (isNaN(target)) { el.textContent = ''; return; }
     var L = { g: 'giorni', o: 'ore', m: 'min', s: 'sec' };
     function pad(n){ return (n < 10 ? '0' : '') + n; }
     function tick() {
       var diff = target - Date.now();
-      if (diff <= 0) { el.innerHTML = '<span class="cd-done">È il gran giorno! 🎉</span>'; clearInterval(timer); return; }
+      if (diff <= 0) { el.innerHTML = '<span class="cd-done">&Egrave; il gran giorno! &#127881;</span>'; clearInterval(timer); return; }
       var d = Math.floor(diff / 86400000);
       var h = Math.floor(diff % 86400000 / 3600000);
       var m = Math.floor(diff % 3600000 / 60000);

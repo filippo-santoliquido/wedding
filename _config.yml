@@ -5,7 +5,7 @@ title: "Michela & Filippo — Matrimonio"   # mostrato nella scheda del browser 
 description: "Tutte le informazioni sul nostro matrimonio: location, programma, foto e RSVP."
 
 # Data e ora del matrimonio per il countdown (formato AAAA-MM-GGTHH:MM:SS)
-wedding_date: "2027-06-12T16:00:00"
+wedding_date: "2027-03-29T11:15:00"   # lunedi 29 marzo 2027 (Pasquetta), ore 11:15
 url: "https://filippo-santoliquido.github.io"
 baseurl: "/wedding"                        # il sito sarà su username.github.io/wedding/
 
@@ -42,7 +42,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
-  - jemoji
 exclude:
   - README.md
   - Gemfile

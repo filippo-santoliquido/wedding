@@ -1,34 +1,55 @@
-# Michela & Filippo — Sito del matrimonio
+# File modificati — riepilogo completo
 
-Sito Jekyll autonomo basato sul tema Alembic. Non richiede il tema come gem né
-plugin personalizzati, quindi si compila sia in locale sia su GitHub Pages così com'è.
+Questi sono TUTTI i file cambiati rispetto allo zip che avevi caricato.
+Copiali sopra il repo mantenendo la struttura delle cartelle.
 
-URL finale (una volta pubblicato): https://filippo-santoliquido.github.io/wedding/
-
-## Cosa modificare
-- **Contenuti**: tutto il sito è una pagina sola, `index.md`. Ogni sezione è un
-  titolo `## Titolo {#ancora}` seguito dal testo in Markdown. Sostituisci tutto ciò
-  che è tra « virgolette ». La riga `feature_image:` in cima al file è la foto grande
-  di apertura; le fasce fotografiche tra una sezione e l'altra si impostano con
-  `{% include band.html image="/assets/images/NOME.jpg" %}`.
-- **Menu / titolo / URL**: `_config.yml` (il blocco in alto).
-- **Colore d'accento**: `assets/styles.scss` → `$accentColour: #306090;` (cambia il codice colore).
-- **Foto di intestazione**: metti le tue immagini in `assets/images/` e punta lì `feature_image:`.
-- **RSVP**: `rsvp.md` rimanda a un Modulo Google — sostituisci `YOUR-FORM-ID` con il link del tuo modulo.
-
-## Anteprima in locale
+## ⚠️ Un file va CANCELLATO a mano
 ```bash
-bundle install
-bundle exec jekyll serve
-# apri http://localhost:4000/wedding/
+rm assets/button.js
+```
+Era un residuo del tema originale: nascondeva il primo pulsante della pagina
+sopra i 640px di larghezza, facendo sparire "Conferma la presenza" su desktop.
+
+## I 6 file modificati
+
+| File | Cosa cambia |
+|---|---|
+| `_config.yml` | data del countdown corretta: 2027-03-29T11:15 (Pasquetta) |
+| `index.md` | mappe con coordinate esatte, punti focali delle foto, testo hero con classi, due punti focali hero |
+| `_includes/band.html` | supporto al parametro `position` per il punto focale di ogni fascia |
+| `_includes/site-feature.html` | passa i punti focali della hero al CSS come variabili |
+| `_includes/site-before-end.html` | tolto il richiamo a button.js, resta il countdown |
+| `_sass/_onepage-extra.scss` | fasce più alte, hero a proporzioni fisse, testo nero in alto |
+
+## Come applicare
+```bash
+# dalla cartella del repo
+rm assets/button.js
+bundle exec jekyll serve      # apri http://localhost:4000/wedding/
+git add -A
+git commit -m "Fix foto, countdown, mappe, bottone RSVP e testo hero"
+git push
 ```
 
-## Pubblicazione (GitHub Pages, sito di progetto)
-1. Crea un NUOVO repository sul tuo account chiamato `wedding` (tienilo separato dal
-   repository del tuo sito accademico `filippo-santoliquido.github.io`).
-2. Carica questa cartella nel repository (vedi i comandi git).
-3. Repository → **Settings → Pages** → *Build and deployment* → Source: **Deploy from a
-   branch** → Branch: **main** / **/(root)** → Save.
-4. Attendi circa 1 minuto: il sito comparirà su https://filippo-santoliquido.github.io/wedding/
+## Le manopole da regolare
 
-Se in futuro passi a un dominio personalizzato, imposta `baseurl: ""` in `_config.yml`.
+**Punto focale della hero** — in cima a `index.md`:
+```yaml
+feature_position: "center 55%"          # desktop
+feature_position_mobile: "center 50%"   # telefono
+```
+Percentuale bassa = si vede la parte alta della foto; alta = la parte bassa.
+
+**Punto focale delle fasce** — nel corpo di `index.md`:
+```liquid
+{% include band.html image="/assets/images/foto.jpg" position="center 40%" %}
+```
+
+**Altezza della scritta sulla hero** — in `_sass/_onepage-extra.scss`,
+cerca `►► MANOPOLA`: è il valore `top` (4% telefono, 5% desktop).
+
+## Segnaposto ancora da riempire
+- link della cartella Google Drive per le foto (`index.md`, sezione Foto)
+- link del modulo Google per gli RSVP (`index.md`, sezione RSVP, in 2 punti)
+- scadenza per le conferme
+- testo dei regali e le risposte delle FAQ

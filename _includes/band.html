@@ -1,1 +1,17 @@
-<div class="band" style="background-image: url({{ include.image | relative_url }})"></div>
+{% comment %}
+  Fascia fotografica a tutta larghezza.
+
+  Uso normale (foto INTERA, nessun ritaglio):
+    {% include band.html image="/assets/images/skiing.jpg" alt="Sciata in montagna" %}
+
+  Uso opzionale a fascia ritagliata (se una foto orizzontale ti piace
+  di piu' come striscia panoramica):
+    {% include band.html image="/assets/images/sunset.jpg" ratio="16/9" position="center 30%" %}
+{% endcomment %}
+<figure class="band{% if include.ratio %} band--crop{% endif %}"{% if include.ratio %} style="--band-ratio: {{ include.ratio }}"{% endif %}>
+  <img src="{{ include.image | relative_url }}"
+       alt="{{ include.alt | default: '' }}"
+       loading="lazy"
+       decoding="async"
+       {% if include.position %}style="object-position: {{ include.position }}"{% endif %}>
+</figure>

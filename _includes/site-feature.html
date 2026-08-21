@@ -6,10 +6,32 @@
   {% assign feature_image = collectiondata.feature_image %}
 {% endif %}
 
+{% comment %}
+  Apertura della pagina: prima il blocco di testo (titolo, data, countdown),
+  poi sotto la foto, mostrata per intero come le fasce del resto della pagina.
+  Nessuna sovrapposizione e nessun ritaglio.
+
+  Nel front matter di index.md:
+    feature_image: "/assets/images/..."   la foto
+    feature_alt:   "descrizione"          testo alternativo (accessibilità)
+    feature_text:  |                      titolo, data e countdown
+{% endcomment %}
+
 {% if feature_text or feature_image %}
-  <div class="feature"{% if feature_image %} style="background-image: url({{ feature_image | relative_url }})"{% endif %}>
-    <div class="container  typeset">
-      {{ feature_text | markdownify }}
-    </div>
+  <div class="feature">
+    {% if feature_text %}
+      <div class="container  typeset">
+        {{ feature_text | markdownify }}
+      </div>
+    {% endif %}
+    {% if feature_image %}
+      <div class="feature__media">
+        <img class="feature__img"
+             src="{{ feature_image | relative_url }}"
+             alt="{{ page.feature_alt | default: page.title }}"
+             fetchpriority="high"
+             decoding="async">
+      </div>
+    {% endif %}
   </div>
 {% endif %}

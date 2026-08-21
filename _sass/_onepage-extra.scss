@@ -2,22 +2,110 @@
 /* ---- One-page scroll additions ---- */
 html { scroll-behavior: smooth; }
 
+/* Fasce fotografiche a tutta larghezza.
+   La foto NON viene mai ritagliata: la fascia prende l'altezza che serve
+   alla foto, quindi le verticali si vedono per intero.
+   Su telefono la foto occupa tutta la larghezza dello schermo; su desktop
+   viene centrata e limitata in altezza, con una fascia neutra ai lati. */
 .band {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: 240px;
-  background-size: cover;
-  background-position: center;
   margin: 2.6rem 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f4f2ef; /* colore della fascia ai lati, su desktop */
 }
-@media (min-width: 700px) { .band { height: 360px; } }
+.band img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 700px) {
+  .band img {
+    width: auto;
+    max-width: 100%;
+    max-height: 82vh; /* ►► MANOPOLA: quanto può essere alta una foto verticale */
+  }
+}
 
-/* give anchored jumps a little breathing room from the top */
+/* Variante opzionale: fascia panoramica ritagliata.
+   Si attiva solo passando `ratio` all'include, es. ratio="16/9". */
+.band--crop img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: var(--band-ratio, 16 / 9);
+  object-fit: cover;
+}
+
+/* ============================================================
+   APERTURA DELLA PAGINA (hero)
+   ------------------------------------------------------------
+   Titolo, data e countdown stanno SOPRA la foto, non sopra la foto
+   in senso di sovrapposizione: sono un blocco a sé, su sfondo pulito.
+   Sotto, la foto mostrata per intero, come le fasce `.band`.
+   Niente ritagli e niente problemi di leggibilità del testo.
+   ============================================================ */
+.feature {
+  display: block;
+  padding: 0;
+  margin-bottom: 1.6rem;
+  background: none;
+  text-align: center;
+}
+
+/* --- Blocco di testo --- */
+.feature .container {
+  position: static;
+  display: block;
+  width: 90%;
+  max-width: 90%;
+  min-height: 0;
+  margin: 0 auto;
+  /* ►► MANOPOLA: aria sopra e sotto la scritta */
+  padding: 1.4rem 0 1.8rem;
+  color: #14181c;
+}
+@media (min-width: 700px) {
+  .feature .container {
+    max-width: 70%;
+    padding: 2rem 0 2.4rem;
+  }
+}
+
+.feature .hero-title,
+.feature .hero-date,
+.feature .countdown {
+  color: #14181c;
+}
+.feature .hero-title { margin-top: 0; padding-top: 0; margin-bottom: .2rem; }
+.feature .hero-date { margin-bottom: 0; }
+
+/* --- Foto, mostrata per intero --- */
+.feature__media {
+  background-color: #f4f2ef; /* fascia ai lati su desktop, come le .band */
+}
+.feature__img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 700px) {
+  .feature__img {
+    width: auto;
+    max-width: 100%;
+    max-height: 82vh; /* ►► MANOPOLA: altezza massima della foto su desktop */
+  }
+}
+
+/* stacco dall'alto quando si salta a una sezione dal menu */
 .article [id] { scroll-margin-top: 1.5rem; }
 
-/* centre the page title and section headings for the one-pager */
+/* titoli di pagina e di sezione centrati */
 .layout-page .article > h1,
 .layout-page .article > h2 { text-align: center; }
 .layout-page .article > h2 { margin-top: 1rem; }
@@ -28,7 +116,6 @@ html { scroll-behavior: smooth; }
   display: flex;
   justify-content: center;
   gap: 1.2rem;
-  color: #eeeee4;
   flex-wrap: wrap;
 }
 .countdown .cd-unit {
@@ -54,7 +141,7 @@ html { scroll-behavior: smooth; }
 .maps-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.4rem;
+  gap: 1.8rem;
   margin: 1.4rem 0 0;
 }
 @media (min-width: 800px) { .maps-grid { grid-template-columns: 1fr 1fr; } }
@@ -63,5 +150,53 @@ html { scroll-behavior: smooth; }
   aspect-ratio: 4 / 3;
   border: 0;
   border-radius: .4rem;
+  display: block;
 }
 .map-card h3 { text-align: center; margin: 0 0 .5rem; }
+.map-card .map-link { text-align: center; margin-top: .5rem; font-size: .85rem; }
+
+/* ---- Indirizzo di ripiego dell'RSVP ----
+   L'indirizzo del modulo Google è lunghissimo: senza questo, su telefono
+   sfonda la larghezza dello schermo e compare la barra di scorrimento
+   orizzontale. Così invece va a capo dove serve. */
+.fallback-link a {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+/* ---- Elenco degli anniversari di Pasquetta ----
+   Stesso linguaggio visivo del countdown della hero: numero grande,
+   etichetta piccola sotto, tutto centrato e che va a capo da solo. */
+.anniversari {
+  list-style: none;
+  width: max-content;
+  max-width: 100%;
+  margin: 1.4rem auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.anniversari li {
+  display: grid;
+  grid-template-columns: 3.8rem 1fr;
+  column-gap: .9rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+}
+.anniversari b,
+.anniversari span {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+.anniversari b { text-align: right; }
+.anniversari span { text-align: left; color: #6b7674; }
+.anniversari li:first-child b,
+.anniversari li:first-child span { color: #306090; }
+@media (min-width: 700px) {
+  .anniversari li { grid-template-columns: 4.4rem 1fr; }
+  .anniversari b,
+  .anniversari span { font-size: 1.6rem; }
+}
