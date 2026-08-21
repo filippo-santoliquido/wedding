@@ -2,8 +2,8 @@
 layout: page
 title: "Il matrimonio di Michela e Filippo"
 description: "Tutte le informazioni sul nostro matrimonio: location, programma, foto e RSVP."
-image: "/assets/images/crater-lake.jpg"
-feature_image: "/assets/images/crater-lake.jpg"
+image: "/assets/images/sweden-aperol.jpg"
+feature_image: "/assets/images/sweden-aperol.jpg"
 feature_text: |
   <h1 class="hero-title">Michela & Filippo</h1>
   <p class="hero-date">Lunedì 29 Marzo 2027</p>
@@ -59,7 +59,7 @@ Il matrimonio si svolge in due luoghi: la cerimonia in chiesa e, a seguire, il r
 
 <p style='text-align: center'><small>Dalla chiesa alla villa sono circa 25 km (mezz'ora di auto).</small></p>
 
-{% include band.html image="/assets/images/sweden-aperol.jpg" position="center 45%" %}
+{% include band.html image="/assets/images/crater-lake.jpg" position="center 45%" %}
 
 ## Programma {#programma}
 
@@ -67,7 +67,7 @@ Ecco il programma di massima della giornata.
 
 - **11:15** — Cerimonia in chiesa
 - **13:00** — Aperitivo e pranzo
-- **18:00** — Taglio della torta, cena e balli
+- **18:00** — Taglio della torta, festa e balli
 
 **Dress code:** l’obiettivo è sentirsi a proprio agio e, possibilmente, anche molto belli. 
 
