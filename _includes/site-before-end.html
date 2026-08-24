@@ -25,3 +25,41 @@
     var timer = setInterval(tick, 1000);
   })();
 </script>
+
+<!-- Pulsante "Copia IBAN" nella sezione Regali -->
+<script>
+  (function () {
+    var btn = document.querySelector('[data-iban-copy]');
+    var field = document.querySelector('[data-iban]');
+    if (!btn || !field) return;
+
+    btn.addEventListener('click', function () {
+      // Gli spazi servono solo a rendere leggibile l'IBAN sullo schermo:
+      // negli appunti finisce senza.
+      var iban = field.textContent.replace(/\s+/g, '');
+      var done = function () {
+        btn.textContent = 'Copiato \u2713';
+        setTimeout(function () { btn.textContent = 'Copia IBAN'; }, 2000);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(iban).then(done, function () { fallback(iban, done); });
+      } else {
+        fallback(iban, done);
+      }
+    });
+
+    // Ripiego per i browser piu' vecchi e per le pagine non in https
+    function fallback(text, done) {
+      var tmp = document.createElement('textarea');
+      tmp.value = text;
+      tmp.setAttribute('readonly', '');
+      tmp.style.position = 'absolute';
+      tmp.style.left = '-9999px';
+      document.body.appendChild(tmp);
+      tmp.select();
+      try { document.execCommand('copy'); done(); } catch (e) { /* niente da fare */ }
+      document.body.removeChild(tmp);
+    }
+  })();
+</script>

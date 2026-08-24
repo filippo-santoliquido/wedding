@@ -2,33 +2,46 @@
 /* ---- One-page scroll additions ---- */
 html { scroll-behavior: smooth; }
 
-/* Fasce fotografiche a tutta larghezza.
-   La foto NON viene mai ritagliata: la fascia prende l'altezza che serve
-   alla foto, quindi le verticali si vedono per intero.
-   Su telefono la foto occupa tutta la larghezza dello schermo; su desktop
-   viene centrata e limitata in altezza, con una fascia neutra ai lati. */
+/* ============================================================
+   LARGHEZZA DELLA PAGINA
+   ------------------------------------------------------------
+   Una sola colonna per tutto: testo, foto, apertura. Sul telefono
+   occupa quasi tutto lo schermo; sul computer si ferma qui e resta
+   centrata, cosi' testo e fotografie hanno gli stessi bordi.
+
+   ►► MANOPOLA: alza o abbassa questo valore per allargare o
+   restringere tutto il sito. Occhio che le foto verticali sono
+   3:4, quindi diventano alte un terzo in piu' della larghezza:
+   a 620px sono alte circa 830px.
+   ============================================================ */
+$pageWidth: 1020px;
+
+.main.container,
+.feature .container,
+.feature__media,
+.header .container,
+.footer .container {
+  width: 92%;
+  max-width: $pageWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Fasce fotografiche.
+   La foto NON viene mai ritagliata e riempie sempre la colonna,
+   quindi le verticali si vedono per intero e tutte le foto hanno
+   la stessa larghezza del testo. */
 .band {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  margin: 2.6rem 0;
+  width: 100%;
+  margin: 2.6rem auto;
   padding: 0;
   overflow: hidden;
-  background-color: #f4f2ef; /* colore della fascia ai lati, su desktop */
 }
 .band img {
   display: block;
   margin: 0 auto;
   width: 100%;
   height: auto;
-}
-@media (min-width: 700px) {
-  .band img {
-    width: auto;
-    max-width: 100%;
-    max-height: 82vh; /* ►► MANOPOLA: quanto può essere alta una foto verticale */
-  }
 }
 
 /* Variante opzionale: fascia panoramica ritagliata.
@@ -57,21 +70,19 @@ html { scroll-behavior: smooth; }
   text-align: center;
 }
 
-/* --- Blocco di testo --- */
+/* --- Blocco di testo ---
+   La larghezza arriva da $pageWidth in cima al file: qui si regola
+   solo lo spazio sopra e sotto la scritta. */
 .feature .container {
   position: static;
   display: block;
-  width: 90%;
-  max-width: 90%;
   min-height: 0;
-  margin: 0 auto;
   /* ►► MANOPOLA: aria sopra e sotto la scritta */
   padding: 1.4rem 0 1.8rem;
   color: #14181c;
 }
 @media (min-width: 700px) {
   .feature .container {
-    max-width: 70%;
     padding: 2rem 0 2.4rem;
   }
 }
@@ -81,34 +92,98 @@ html { scroll-behavior: smooth; }
 .feature .countdown {
   color: #14181c;
 }
-.feature .hero-title { margin-top: 0; padding-top: 0; margin-bottom: .2rem; }
-.feature .hero-date { margin-bottom: 0; }
-
-/* --- Foto, mostrata per intero --- */
-.feature__media {
-  background-color: #f4f2ef; /* fascia ai lati su desktop, come le .band */
+/* ►► MANOPOLA: dimensione del titolo della hero.
+   I tre valori di clamp() sono: minimo, misura fluida, massimo.
+   Per farlo ancora piu' grande alza l'ultimo valore (6.5rem). */
+.feature .hero-title {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: .4rem;
+  font-size: clamp(2.8rem, 10vw, 6.5rem);
+  line-height: 1.04;
+  letter-spacing: .01em;
 }
+.feature .hero-date {
+  margin-bottom: 0;
+  font-size: clamp(1.1rem, 3.4vw, 1.9rem);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+/* --- Foto, mostrata per intero, larga quanto il resto --- */
 .feature__img {
   display: block;
   margin: 0 auto;
   width: 100%;
   height: auto;
 }
-@media (min-width: 700px) {
-  .feature__img {
-    width: auto;
-    max-width: 100%;
-    max-height: 82vh; /* ►► MANOPOLA: altezza massima della foto su desktop */
-  }
-}
 
 /* stacco dall'alto quando si salta a una sezione dal menu */
 .article [id] { scroll-margin-top: 1.5rem; }
 
-/* titoli di pagina e di sezione centrati */
+/* ============================================================
+   ALLINEAMENTO DEL TESTO
+   ------------------------------------------------------------
+   Il testo della pagina e' allineato a sinistra, come in un
+   documento normale. Restano centrati solo i blocchi che hanno
+   senso centrati: l'apertura, le schede delle mappe, l'elenco
+   degli anniversari e il riquadro della barzelletta.
+
+   ►► MANOPOLA: per tornare a tutto centrato, metti "center" al
+      posto di "left" nelle due regole qui sotto e rimetti
+      "auto" nel margine del filetto sotto i titoli (piu' giu',
+      cerca "filetto decorativo").
+   ============================================================ */
+.layout-page .article { text-align: left; }
+
+/* Il tema centrerebbe da solo il titolo della pagina: lo riportiamo
+   a sinistra insieme al resto. */
 .layout-page .article > h1,
-.layout-page .article > h2 { text-align: center; }
-.layout-page .article > h2 { margin-top: 1rem; }
+.layout-page .article > h2 { text-align: left; }
+
+/* Nelle schede delle mappe l'indirizzo resta centrato sotto al
+   titolo: e' una scheda, non testo corrente. */
+.map-card p { text-align: center; }
+
+/* ============================================================
+   TITOLI DI SEZIONE
+   ------------------------------------------------------------
+   ►► MANOPOLA COLORI: cambia i due valori qui sotto per
+   ricolorare tutti i titoli e i sottotitoli della pagina.
+   Alternative che stanno bene con il resto: #4a6c6f (salvia),
+   #7d5a7f (prugna), #9c6644 (terracotta), #2f4858 (blu notte).
+   ============================================================ */
+$sectionColour: #2a5580;   // titoli di sezione (h2)
+$subsectionColour: #4d7ba8; // sottotitoli (h3)
+
+.layout-page .article > h2 {
+  color: $sectionColour;
+  font-size: clamp(1.9rem, 5.4vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: .03em;
+  margin-top: 2.6rem;
+  margin-bottom: .8rem;
+}
+
+/* filetto decorativo sotto ogni titolo di sezione
+   (con il testo a sinistra parte da sinistra: il secondo valore
+   del margine e' 0; rimettendo "auto" torna centrato) */
+.layout-page .article > h2::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: .12rem;
+  margin: .6rem 0 0;
+  background: $subsectionColour;
+  opacity: .55;
+  border-radius: .1rem;
+}
+
+.layout-page .article h3 {
+  color: $subsectionColour;
+  font-size: clamp(1.25rem, 3.2vw, 1.7rem);
+  letter-spacing: .02em;
+}
 
 /* ---- Countdown (nella hero) ---- */
 .countdown {
@@ -171,7 +246,9 @@ html { scroll-behavior: smooth; }
   list-style: none;
   width: max-content;
   max-width: 100%;
-  margin: 1.4rem auto;
+  /* con il testo a sinistra l'elenco parte da sinistra;
+     mettendo "auto" al posto dello 0 torna centrato */
+  margin: 1.4rem 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -199,4 +276,83 @@ html { scroll-behavior: smooth; }
   .anniversari li { grid-template-columns: 4.4rem 1fr; }
   .anniversari b,
   .anniversari span { font-size: 1.6rem; }
+}
+
+/* ============================================================
+   SEZIONE REGALI — riquadro con le coordinate bancarie
+   ------------------------------------------------------------
+   I dati veri si scrivono in index.md, nella sezione "Regali".
+   Qui c'e' solo l'aspetto grafico del riquadro.
+   ============================================================ */
+.iban-card {
+  max-width: 32rem;
+  margin: 1.6rem auto 0;
+  padding: 1.8rem 1.4rem 1.4rem;
+  border: .08rem solid rgba(42, 85, 128, .18);
+  border-radius: .5rem;
+  background: #fbfcfd;
+  box-shadow: 0 .3rem 1.4rem rgba(20, 24, 28, .06);
+  text-align: left;
+}
+
+.iban-card .iban-label {
+  margin: 0 0 .1rem;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #4d7ba8;
+}
+
+.iban-card .iban-value {
+  margin: 0 0 1.3rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+/* L'IBAN in caratteri a larghezza fissa: si legge e si ricopia
+   molto meglio, e va a capo senza sfondare lo schermo. */
+.iban-card .iban-code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 1.2rem;
+  letter-spacing: .04em;
+  overflow-wrap: anywhere;
+}
+
+.iban-card .iban-copy {
+  margin: .2rem 0 0;
+  font-size: .95rem;
+  letter-spacing: .04em;
+}
+
+/* ============================================================
+   RIQUADRO DELLA RICHIESTA (la barzelletta)
+   ============================================================ */
+.richiesta {
+  max-width: 34rem;
+  margin: 1.6rem auto 0;
+  padding: 1.8rem 1.4rem;
+  border: .12rem dashed rgba(77, 123, 168, .55);
+  border-radius: .6rem;
+  background: rgba(77, 123, 168, .05);
+  /* questo riquadro resta centrato: e' un cartello, non testo corrente */
+  text-align: center;
+}
+
+.richiesta .richiesta-emoji {
+  font-size: 2.6rem;
+  line-height: 1;
+  margin: 0 0 .8rem;
+}
+
+.richiesta .richiesta-testo {
+  font-size: 1.35rem;
+  line-height: 1.5;
+  margin: 0 0 .9rem;
+}
+
+.richiesta .richiesta-nota {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #6b7674;
 }
