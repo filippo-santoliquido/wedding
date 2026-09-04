@@ -14,9 +14,9 @@ feature_text: |
 Ci sposiamo <b>lunedì 29 marzo 2027</b>, giorno di Pasquetta, a <b>Verona</b>, e saremmo felicissimi di avervi con noi. Su questa pagina trovate tutto quello che vi serve: scorrete verso il basso per le location, il programma, le foto e per confermare la vostra presenza.
 
 
-<p style='text-align: center'>
+<!-- <p style='text-align: center'>
 {% include button.html text="<b>Conferma la presenza</b>" link="/#rsvp" %}
-</p>
+</p> -->
 
 {% include band.html image="/assets/images/sunset-nyc.jpg" position="center 35%" %}
 
@@ -106,7 +106,7 @@ La vostra presenza è per noi la cosa più preziosa. Se però desiderate farci u
 
 <div class="iban-card">
   <p class="iban-label">Intestato a</p>
-  <p class="iban-value">Michela Fagnani e Filippo Santoliquido</p>
+  <p class="iban-value">Michela Fagnani Filippo Santoliquido</p>
   <p class="iban-label">IBAN</p>
   <p class="iban-value iban-code" data-iban>IT82 L036 6901 6008 1788 6406 942</p>
   <p class="iban-label">Causale</p>
