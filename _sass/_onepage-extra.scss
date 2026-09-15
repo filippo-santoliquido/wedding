@@ -118,6 +118,16 @@ $pageWidth: 1020px;
   height: auto;
 }
 
+/* Sul computer il testo della pagina occupa il 62% della colonna
+   (regola .content del tema): la prima foto si restringe allo stesso
+   modo, cosi' ha la stessa larghezza di tutte le altre foto. */
+@media screen and (min-width: 40em) {
+  .feature__media {
+    width: 92% * .62;
+    max-width: $pageWidth * .62;
+  }
+}
+
 /* stacco dall'alto quando si salta a una sezione dal menu */
 .article [id] { scroll-margin-top: 1.5rem; }
 
@@ -355,4 +365,14 @@ $subsectionColour: #4d7ba8; // sottotitoli (h3)
   line-height: 1.5;
   margin: 0;
   color: #6b7674;
+}
+
+/* ============================================================
+   TESTO NORMALE UN PO' PIU' GRANDE
+   Ingrandisce il testo corrente della pagina (paragrafi, elenchi)
+   del 10%. Titoli e riquadri con dimensioni proprie restano uguali.
+   Per regolare: cambia 1.1em (1em = dimensione originale).
+   ============================================================ */
+.main {
+  font-size: 1.2em;
 }

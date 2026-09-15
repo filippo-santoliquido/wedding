@@ -43,7 +43,7 @@ Il matrimonio si svolge in due luoghi: la cerimonia in chiesa e, a seguire, il r
     <h3>🥂 Il Ricevimento</h3>
     <p style="text-align:center">
       <b>Villa Ottolini</b><br>
-      Via Valle Molini 5, 37066 Custoza (VR)<br>
+      Via Valle Molini 5, 37066 Custoza<br>
       Ore 13:00
     </p>
     <iframe class="map-embed" loading="lazy" title="Mappa del ricevimento"
@@ -88,7 +88,7 @@ Ecco il programma di massima della giornata.
 
 ### Esigenze alimentari o allergie?
 
-Le raccogliamo tramite il modulo RSVP qui sotto.
+Le raccogliamo tramite il modulo "Conferma presenza" qui sotto.
 
 ### Dress code?
 
@@ -150,7 +150,7 @@ Fateci sapere se riuscite a esserci entro il <b>15 Dicembre 2026</b>.
 
 
 <p style='text-align: center'>
-{% include button.html text="<b>Apri il modulo RSVP</b>" link="https://docs.google.com/forms/d/e/1FAIpQLSfUJYT-1hbSk9x7GJhoa7qoGy_GfjgUeOtGENjz5zzS-SkOIA/viewform?usp=sharing&ouid=104158692136542043898" %}
+{% include button.html text="<b>Conferma presenza</b>" link="https://docs.google.com/forms/d/e/1FAIpQLSfUJYT-1hbSk9x7GJhoa7qoGy_GfjgUeOtGENjz5zzS-SkOIA/viewform?usp=sharing&ouid=104158692136542043898" %}
 </p>
 
 <p class="fallback-link"> <small>Problemi con il pulsante? Copia questo indirizzo nel browser:<br> <a href="https://docs.google.com/forms/d/e/1FAIpQLSfUJYT-1hbSk9x7GJhoa7qoGy_GfjgUeOtGENjz5zzS-SkOIA/viewform">https://docs.google.com/forms/d/e/1FAIpQLSfUJYT-1hbSk9x7GJhoa7qoGy_GfjgUeOtGENjz5zzS-SkOIA/viewform</a></small> </p>
