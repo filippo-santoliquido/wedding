@@ -2,7 +2,7 @@
 #  DA MODIFICARE  --------------------------------------------------
 # ------------------------------------------------------------------
 title: "Michela & Filippo — Matrimonio"   # mostrato nella scheda del browser e nel footer
-description: "Tutte le informazioni sul nostro matrimonio: location, programma, foto e RSVP."
+description: "Tutte le informazioni sul nostro matrimonio: luoghi, programma, foto e RSVP."
 
 # Data e ora del matrimonio per il countdown (formato AAAA-MM-GGTHH:MM:SS)
 wedding_date: "2027-03-29T11:15:00"   # lunedi 29 marzo 2027 (Pasquetta), ore 11:15
@@ -13,7 +13,7 @@ baseurl: "/wedding"                        # il sito sarà su username.github.io
 navigation_header:
 - title: Home
   url: /
-- title: Location
+- title: Dove
   url: /#location
 - title: Programma
   url: /#programma

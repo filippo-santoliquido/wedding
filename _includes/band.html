@@ -2,7 +2,7 @@
   Fascia fotografica a tutta larghezza.
 
   Uso normale (foto INTERA, nessun ritaglio):
-    {% include band.html image="/assets/images/skiing.jpg" alt="Sciata in montagna" %}
+    {% include band.html image="/assets/images/skiing.jpg" alt="Sciata in montagna" caption="Gran Sasso, 2026" %}
 
   Uso opzionale a fascia ritagliata (se una foto orizzontale ti piace
   di piu' come striscia panoramica):
@@ -14,4 +14,5 @@
        loading="lazy"
        decoding="async"
        {% if include.position %}style="object-position: {{ include.position }}"{% endif %}>
+  {% if include.caption %}<figcaption class="photo-caption">{{ include.caption }}</figcaption>{% endif %}
 </figure>

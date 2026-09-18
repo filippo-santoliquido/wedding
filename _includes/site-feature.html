@@ -31,6 +31,7 @@
              alt="{{ page.feature_alt | default: page.title }}"
              fetchpriority="high"
              decoding="async">
+        {% if page.feature_caption %}<p class="photo-caption">{{ page.feature_caption }}</p>{% endif %}
       </div>
     {% endif %}
   </div>

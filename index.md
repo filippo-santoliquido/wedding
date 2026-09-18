@@ -4,6 +4,7 @@ title: "Il matrimonio di Michela e Filippo"
 description: "Tutte le informazioni sul nostro matrimonio"
 image: "/assets/images/sweden-aperol.jpg"
 feature_image: "/assets/images/sweden-aperol.jpg"
+feature_caption: "Venosa, 2026"
 feature_text: |
   <h1 class="hero-title">Michela & Filippo</h1>
   <p class="hero-date">Lunedì 29 Marzo 2027</p>
@@ -11,16 +12,16 @@ feature_text: |
 ---
 
 
-Ci sposiamo <b>lunedì 29 marzo 2027</b>, giorno di Pasquetta, a <b>Verona</b>, e saremmo felicissimi di avervi con noi. Su questa pagina trovate tutto quello che vi serve: scorrete verso il basso per le location, il programma, le foto e per confermare la vostra presenza.
+Ci sposiamo <b>lunedì 29 marzo 2027</b>, giorno di Pasquetta, a <b>Verona</b>, e saremmo felicissimi di avervi con noi. Su questa pagina trovate tutto quello che vi serve: scorrete verso il basso per i luoghi, il programma, le foto e per confermare la vostra presenza.
 
 
 <!-- <p style='text-align: center'>
 {% include button.html text="<b>Conferma la presenza</b>" link="/#rsvp" %}
 </p> -->
 
-{% include band.html image="/assets/images/sunset-nyc.jpg" position="center 35%" %}
+{% include band.html image="/assets/images/sunset-nyc.jpg" position="center 35%" caption="Sommacampagna, 2023" %}
 
-## Location {#location}
+## Dove {#location}
 
 Il matrimonio si svolge in due luoghi: la cerimonia in chiesa e, a seguire, il ricevimento.
 
@@ -59,7 +60,7 @@ Il matrimonio si svolge in due luoghi: la cerimonia in chiesa e, a seguire, il r
 Dalla chiesa alla villa sono circa 25 km (mezz'ora di auto).
 
 
-{% include band.html image="/assets/images/crater-lake.jpg" position="center 45%" %}
+{% include band.html image="/assets/images/crater-lake.jpg" position="center 45%" caption="La Cola, 2025" %}
 
 ## Programma {#programma}
 
@@ -82,7 +83,7 @@ Ecco il programma di massima della giornata.
   </p>
 </div>
 
-{% include band.html image="/assets/images/skiing.jpg" position="center 30%" %}
+{% include band.html image="/assets/images/skiing.jpg" position="center 30%" caption="Gran Sasso, 2026" %}
 
 ## Domande Frequenti {#faq}
 
@@ -98,7 +99,7 @@ L’obiettivo è sentirsi a proprio agio e, possibilmente, anche molto belli.
 
 Sì.
 
-{% include band.html image="/assets/images/safari.jpg" position="center 40%" %}
+{% include band.html image="/assets/images/safari.jpg" position="center 40%" caption="Ponza, 2026" %}
 
 ## Regali {#regali}
 
@@ -116,7 +117,7 @@ La vostra presenza è per noi la cosa più preziosa. Se però desiderate farci u
 
 
 
-{% include band.html image="/assets/images/sunset.jpg" position="center 40%" %}
+{% include band.html image="/assets/images/sunset.jpg" position="center 40%" caption="Piani di Pezza, 2026" %}
 
 ## Foto {#foto}
 
@@ -142,7 +143,7 @@ Pasquetta è una festa mobile: cade in un giorno diverso ogni anno. Ecco tutte l
 </ul>
 
 
-{% include band.html image="/assets/images/venosa-pranzo.jpg" position="center 50%" %}
+{% include band.html image="/assets/images/venosa-pranzo.jpg" position="center 50%" caption="Venosa, 2026" %}
 
 ## Conferma la tua Presenza {#rsvp}
 

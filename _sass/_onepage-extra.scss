@@ -354,18 +354,17 @@ $subsectionColour: #4d7ba8; // sottotitoli (h3)
   margin: 0 0 .8rem;
 }
 
-.richiesta .richiesta-testo {
-  font-size: 1.35rem;
-  line-height: 1.5;
-  margin: 0 0 .9rem;
-}
-
+/* Testo e nota del riquadro: una sola misura e un solo colore,
+   uguali al testo normale della pagina.
+   ►► MANOPOLA: font-size (1em = testo normale). */
+.richiesta .richiesta-testo,
 .richiesta .richiesta-nota {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.5;
-  margin: 0;
-  color: #6b7674;
+  padding-top: 0;
 }
+.richiesta .richiesta-testo { margin: 0 0 .9rem; }
+.richiesta .richiesta-nota { margin: 0; }
 
 /* ============================================================
    TESTO NORMALE UN PO' PIU' GRANDE
@@ -376,3 +375,22 @@ $subsectionColour: #4d7ba8; // sottotitoli (h3)
 .main {
   font-size: 1.2em;
 }
+
+/* ============================================================
+   DIDASCALIE DELLE FOTO (luogo e anno)
+   In basso a destra sotto la foto, un po' piu' piccole del testo.
+   ►► MANOPOLA: font-size (1em = testo normale).
+   ============================================================ */
+.photo-caption {
+  margin: .4rem 0 0;
+  padding: 0;
+  text-align: right;
+  font-size: .8em;
+  line-height: 1.4;
+  font-style: italic;
+  color: #6b7674;
+}
+/* La prima foto sta fuori da .main, quindi non riceve l'ingrandimento
+   del testo: qui la portiamo alla stessa misura delle altre didascalie
+   (0.8 x 1.2 = 0.96). Se cambi 1.2em in .main, aggiorna anche questo. */
+.feature .photo-caption { font-size: .96em; }
